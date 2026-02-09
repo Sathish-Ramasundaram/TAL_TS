@@ -60,19 +60,6 @@ console.log(title, count, active, inferredNumber, money);
 
 ---------------------
 
-Note: 
-Excellent question 👏 — this shows you are really thinking about how TypeScript works.
-
-Short answer:
-
-👉 **There is no error because nothing is wrong yet.**
-👉 TypeScript inferred the types correctly.
-👉 Errors appear only when you violate the inferred type.
-
-Let’s walk slowly.
-
----
-
 # ✅ What TypeScript Did Here — Type Inference
 
 Your code:
@@ -208,28 +195,6 @@ No value → TypeScript cannot guess → may become any
 
 ---
 
-# ✅ Your Understanding Check (quick)
-
-Will this error or not?
-
-```ts
-let x = 10;
-x = 20;
-```
-
-Answer: **No error** (why?)
-
-
----------------------------------
-
-
-One more tiny step before interface: 
-
-const task1: { message: string } = {
-  message: "Hello"
-};
-
-console.log(task1);
 
 ## Interface
 
@@ -249,7 +214,7 @@ const task1: Task = {
 console.log(task1);
 
 
-6. Create Your First Interface (Task Model)
+6. Create Your Interface (Task Model)
 
 mkdir src\models
 
