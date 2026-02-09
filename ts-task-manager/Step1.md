@@ -202,16 +202,29 @@ An interface is a shape rule for an object.
 It tells TypeScript:
 Any object of this type MUST have these properties and types.
 
-
 interface Task {
-  message: string;
+  id: number;
+  title: string;
+  completed: boolean;
 }
 
+
 const task1: Task = {
-  message: "Hello"
+  id: 1,
+  title: "Learn Redux Saga",
+  completed: false
+};
+
+const task2: Task = {
+  id: 2,
+  title: "Write Cypress test",
+  completed: true
 };
 
 console.log(task1);
+console.log(task2);
+
+---------------------------------------
 
 
 6. Create Your Interface (Task Model)
@@ -277,18 +290,26 @@ Value can be set when object is created
 src/index.ts
 
 Replace with this: 
-
-
 import { Task } from "./models/Task";
 
 const task1: Task = {
   id: 1,
-  title: "Learn TypeScript",
+  title: "Learn Redux Saga",
   completed: false,
-  createdAt: new Date(),
+  priority: 1,
+  createdAt: new Date()
+};
+
+const task2: Task = {
+  id: 2,
+  title: "Write Cypress test",
+  completed: true,
+  createdAt: new Date()
 };
 
 console.log(task1);
+console.log(task2);
+
 
 
 

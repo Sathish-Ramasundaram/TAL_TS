@@ -1,16 +1,10 @@
-import { Task } from "./models/Task";
-
-// typed function
-function createTask(title: string): Task {
-  return {
-    id: 1,
-    title: title,
-    completed: false,
-    // remove createdAt  
-    // createdAt: new Date(),
-  };
+function echo<T>(value: T): T {
+  return value;
 }
 
-const task1 = createTask("Practice TypeScript");
+const a = echo<string>("Hello");
+const b = echo<number>(123);
+const c = echo<boolean>(true);
 
-console.log(task1);
+console.log(a, b, c);
+

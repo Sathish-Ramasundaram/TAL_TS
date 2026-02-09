@@ -25,26 +25,60 @@ npx ts-node src/index.ts
 You should see a Task object printed.
 
 
-3. Try This Test
+3. Enum: 
 
-Change:
+```
 
-function createTask(title: string): Task {
-  return {
-    id: 1,
-    title: title,
-    completed: false,
-    // remove createdAt
-  };
+// enum = fixed named constants
+export enum Priority {
+  Low = "low",
+  Medium = "medium",
+  High = "high"
 }
 
-4. Try run it.
+// union = limited allowed values
+export type Status = "todo" | "in_progress" | "done";
 
-you will get error ❌
-Because return does not match Task interface.
+export interface Task {
+  id: number;
+  title: string;
+  completed: boolean;
+  priority: Priority;   // enum used here
+  status: Status;       // union used here
+  assignedTo?: string;  // optional field
+}
 
-That’s TypeScript safety.
 
+```
+
+index.ts:
+
+
+```
+
+import { Task, Priority, Status } from "./models/Task";
+
+const task1: Task = {
+  id: 1,
+  title: "Learn Redux Saga",
+  completed: false,
+  priority: Priority.High,
+  status: "in_progress",
+  assignedTo: "Sathish"
+};
+
+const task2: Task = {
+  id: 2,
+  title: "Write Cypress tests",
+  completed: true,
+  priority: Priority.Medium,
+  status: "done"
+};
+
+console.log(task1);
+console.log(task2);
+
+```
 5. 
 6. 
 7. 
