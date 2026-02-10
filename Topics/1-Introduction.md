@@ -1,6 +1,6 @@
 TypeScript is JavaScript + Types.
 
-It is a programming language created by Microsoft that adds type safety and better tooling on top of JavaScript.
+It adds type safety and better tooling on top of JavaScript.
 You write TypeScript → it gets compiled into JavaScript → browser / Node runs the JavaScript.
 
 🧠 Simple Definition
@@ -48,3 +48,65 @@ TypeScript solves this with:
 ✅ 1 — Catches Errors Early
 
 Before running code.
+
+
+------------------------
+
+A runtime error is an error that happens:
+
+❗ while the program is running
+❗ not while writing the code
+❗ not during compile — but during execution
+
+It crashes or breaks behavior when the code actually runs.
+
+
+Simple Example — JavaScript Runtime Error
+let user = null;
+
+console.log(user.name);
+
+
+This runs… then crashes:
+
+TypeError: Cannot read property 'name' of null
+
+
+Why?
+
+Because:
+
+null has no property "name"
+
+
+But JavaScript didn’t warn earlier.
+
+✅ Another Example
+function add(a, b) {
+  return a + b;
+}
+
+add(10, "5");   // wrong type
+
+
+Result:
+
+"105"   ← wrong result (string concat)
+
+
+Not crash — but wrong behavior at runtime.
+
+✅ How TypeScript Helps
+
+TypeScript catches these before running.
+
+function add(a: number, b: number) {
+  return a + b;
+}
+
+add(10, "5");   // ❌ compile-time error
+
+
+Error shown in editor — not at runtime.
+
+---------------------

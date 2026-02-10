@@ -13,6 +13,23 @@ function echo(value: string): string {
 
 console.log(echo("Welcome"));
 
+
+
+param: type   → input type        (value: string)
+): type       → output or return type       (): string)
+
+
+Can We Omit Return Type?
+
+Yes — TypeScript can infer it.
+
+function echo(value: string) {
+  return value;   // inferred as string
+}
+
+
+This is valid.
+
 ---------------------------------
 
 Generic Version
