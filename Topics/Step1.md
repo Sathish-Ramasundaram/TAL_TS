@@ -198,6 +198,7 @@ No value → TypeScript cannot guess → may become any
 ---
 
 Inline type (Not a better option, so need to go with interface)
+
 const task1: {id: number; title: string} = {
   id: 1,
   title: "Learn Redux Saga",

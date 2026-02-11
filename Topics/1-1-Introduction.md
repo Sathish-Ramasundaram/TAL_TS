@@ -62,42 +62,32 @@ It crashes or breaks behavior when the code actually runs.
 
 
 Simple Example — JavaScript Runtime Error
+```
 let user = null;
-
 console.log(user.name);
-
-
+```
 This runs… then crashes:
-
 TypeError: Cannot read property 'name' of null
 
-
-Why?
-
+Why
 Because:
-
 null has no property "name"
-
-
 But JavaScript didn’t warn earlier.
 
 ✅ Another Example
+```
 function add(a, b) {
   return a + b;
 }
 
 add(10, "5");   // wrong type
-
+```
 
 Result:
-
 "105"   ← wrong result (string concat)
-
-
 Not crash — but wrong behavior at runtime.
 
 ✅ How TypeScript Helps
-
 TypeScript catches these before running.
 
 function add(a: number, b: number) {
@@ -106,7 +96,70 @@ function add(a: number, b: number) {
 
 add(10, "5");   // ❌ compile-time error
 
-
 Error shown in editor — not at runtime.
 
 ---------------------
+
+What is Hard Refactoring?
+
+Refactoring = improving code structure without changing behavior.
+
+Example:
+
+rename variable
+split functions
+change parameter types
+move files
+
+❌ Why Refactoring Is Hard in JavaScript
+Because there is no type safety.
+
+Example:
+
+function getUser(id) {
+  return fetchUser(id);
+}
+
+
+Used in 50 places.
+
+You decide to change:
+
+function getUser(id, includeAddress)
+
+
+Now you must manually check:
+
+Did every call pass 2 params?
+Did any place pass wrong type?
+Did anything break?
+
+
+You don’t know until runtime.
+
+✅ TypeScript Makes Refactoring Easy
+function getUser(id: number, includeAddress: boolean)
+
+
+If you change it →
+Editor instantly shows:
+❌ 18 errors found
+
+
+Click → fix → done.
+
+✅ Refactoring Example — Rename Property
+JavaScript
+user.name
+
+Rename to:
+user.fullName
+
+You must search whole project manually 😓
+
+TypeScript
+Editor knows type:
+
+Rename symbol → updates everywhere safely
+
+-----------------------------

@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "ts9",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,8 +11,12 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "@types/node": "^25.2.2",
+    "@types/lodash": "^4.17.23",
+    "@types/node": "^25.2.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.23"
   }
 }

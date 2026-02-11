@@ -1,5 +1,33 @@
 1. Typed Function
 
+Simple version: 
+
+interface Task {
+  id: number;
+  title: string;
+  completed: boolean;
+}
+
+function createTask(
+  id: number,
+  title: string,
+  completed: boolean,
+): Task {
+  return {
+    id,
+    title,
+    completed,
+  };
+}
+
+const task1 = createTask(1, "Learn Redux Saga", false);
+const task2 = createTask(2, "Write Cypress test", true);
+
+console.log(task1);
+console.log(task2);
+
+------------------------------------
+
 index.ts
 Replace everything with this:
 

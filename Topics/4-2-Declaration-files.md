@@ -1,74 +1,67 @@
-Normal TS File vs Declaration File
+We will cover: 
+What is a declaration file
+Creating your own .d.ts
+Using it
+Typing third-party libraries
 
-Normal TS file
-// math.ts
-export function add(a: number, b: number) {
-  return a + b;
-}
+----
 
-Contains:
-code
-logic
-runtime behavior
+What is a Declaration File?
+A declaration file: 
+contains only types
+contains no real code
+tells TS what exists. 
 
-Declaration file
-// math.d.ts
-export function add(a: number, b: number): number;
+File name ends with: something.d.ts
 
-Contains:
-only type signature
-no function body
-no runtime code
+Why needed?
+When: 
+JS library exists
+TS has no type info
 
+TS needs help understanding it. 
 
-Small Example — Your Own JS File
-Suppose you have JS file:
+Example: JS library without types: 
 
-📁 math.js
+math.js (normal JavaScript)
 exports.add = (a, b) => a + b;
 
+Works in JS — but TS shows error when importing:
+No declaration file found ❌
 
-No types.
-Create Declaration
-📁 math.d.ts
+Create Declaration File
+math.d.ts
 export function add(a: number, b: number): number;
 
-Use in TS
+Notice: 
+no function body
+only signature
+
+
+Use It in TypeScript
+app.ts
 import { add } from "./math";
 
-add(1, 2);      // ✅
-add("a", "b");  // ❌ type error
+console.log(add(2, 3));
+
+Output
+5
+
+Now TS understands types ✅
+
+---------------
+
+Declare Global Variable Example: 
+
+global.d.ts
+declare const APP_VERSION: string;
+
+app.ts
+console.log(APP_VERSION);
+
+Need to check how to run this later.
+TS won’t complain now ✅
 
 
-Now typed safely.
-✅ Typing Third-Party Libraries
 
-Most popular libraries already provide types.
-Installed using:
-
-@types package
-
-✅ Example — Express
-npm install express
-npm install @types/express --save-dev
-
-✅ Example — Node
-npm install @types/node --save-dev
-
-
-You already did this ✔
-
-🧠 Pattern
-library → express
-types → @types/express
-
-
-DefinitelyTyped repo maintains these.
-
-✅ When You Need to Write Your Own .d.ts
-
-You create declaration file when:
-using old JS library
-using internal JS utilities
-using custom global script
-no @types available
+Need to study other topics deeply later
